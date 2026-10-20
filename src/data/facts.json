@@ -55,7 +55,7 @@
   },
 
   "atlanta": {
-    "office": { "name": "Compudopt Atlanta", "address": "760 Bolton Road, Atlanta, GA 30331", "src": "compudopt-contact", "_verify": "Call 855-532-5060 to confirm drop-off hours before publishing. An older article places Compudopt Atlanta in Forest Park." },
+    "office": { "name": "Compudopt Atlanta", "address": "760 Bolton Road, Atlanta, GA 30331", "src": "compudopt-contact", "_verify": "Call 855-532-5060 to confirm drop-off hours before publishing. An older article places Compudopt Atlanta in Forest Park.", "_assumption": "Until confirmed, use this address with 'call ahead' + phone. Do not list hours." },
     "expandedToAtlanta": { "year": 2021, "src": "compudopt-cdc-atl" },
     "metroResidentsWithoutComputerOrInternet": { "value": 500000, "label": "people in metro Atlanta without a home computer and/or high-speed internet", "src": "compudopt-santander-atl" },
     "santanderInvestment": { "dollars": 7000000, "date": "2023-03-20", "goals": { "computers": 7500, "households": 10000, "peopleTrained": 24000 }, "src": "compudopt-santander-atl" },
@@ -67,7 +67,7 @@
     "beltlineBroadbandGap": { "low": 25, "high": 33, "label": "% of residents in some BeltLine areas without broadband", "src": "beltline-2023" },
     "partners2025": ["Boys & Girls Club of Metro Atlanta", "Clayton County Community Services Authority", "Cummins", "DeKalb County Chamber of Commerce", "Douglas County School Foundation", "Georgia Power", "Georgia's Own Credit Union", "Intuitive", "Legacy of Pearls", "LexisNexis Risk Solutions", "Microsoft", "State Farm", "Unum"],
     "partners2025Src": "compudopt-ar2025",
-    "microCenter": { "note": "Micro Center stores accept working laptops/desktops for Compudopt, including 2 Atlanta-area stores.", "src": "microcenter-2024" }
+    "microCenter": { "note": "Micro Center stores accept working laptops/desktops for Compudopt, including 2 Atlanta-area stores.", "src": "microcenter-2024", "_assumption": "Specific Atlanta stores are unconfirmed. Say 'participating Micro Center stores (two in metro Atlanta)' and do not name them." }
   },
 
   "georgiaTech": {

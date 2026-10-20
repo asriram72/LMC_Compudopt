@@ -127,9 +127,9 @@ Merge often: one branch per phase, short PRs, and pull before starting a prompt.
 ---
 
 ## 5. Still to confirm (team)
-- [ ] Compudopt Atlanta drop-off address and hours: call 855-532-5060. The contact page says 760 Bolton Rd, but a 2025 article says Forest Park.
-- [ ] Which Micro Center Atlanta stores take donations (likely Duluth and Marietta): check the scheduling link.
+- [ ] Compudopt Atlanta drop-off address and hours: call 855-532-5060. The contact page says 760 Bolton Rd, but a 2025 article says Forest Park. **Assumed for now:** 760 Bolton Rd (the official contact page), always shown with "call ahead" and the phone number, no hours listed.
+- [ ] Which Micro Center Atlanta stores take donations (likely Duluth and Marietta): check the scheduling link. **Assumed for now:** don't name stores; say "participating Micro Center stores (two in metro Atlanta), working laptops and desktops only", which is what our source supports.
 - [ ] YouTube upload dates for the APA video citations.
 - [ ] Watch the Carlos and Santander videos before embedding.
 - [ ] Optionally open the Sustainability Next flipbook (https://online.fliphtml5.com/zvwro/mrlu/) and quote one line from it directly.
-- [ ] Course number for the footer disclaimer.
+- [x] Course number for the footer disclaimer: **LMC 3403**. Team: Aditya Sriram, Akshay Gupta, Rithvik Reddygari, Marie Anyolie (in `src/content/team.ts`).

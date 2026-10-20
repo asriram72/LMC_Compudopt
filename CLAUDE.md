@@ -10,7 +10,7 @@ A single-page, scroll-driven promotional website written **as Compudopt Atlanta*
 2. Every stat shown on the page carries a small in-text APA citation, e.g. `(Compudopt, 2026)`, that links to its entry in the Sources section.
 3. Sources section renders `references.json` in APA 7 style, alphabetical, hanging indent. Italics are marked with `*...*` in the JSON. If an entry says "Retrieved <date>." and has a url, render "Retrieved <date>, from <url>". Entries with `"awn": true` have no URL (APA allows this for newswire/newspaper database articles). Hide entries not cited anywhere on the page.
 4. Never claim Compudopt ships laptops worldwide. It's US-only. The world map is only for where **dumped** e-waste goes.
-5. Footer disclaimer: "A student project for Georgia Tech LMC. Not an official Compudopt website." Link to compudopt.org.
+5. Footer disclaimer: "A student project for Georgia Tech LMC 3403. Not an official Compudopt website." Link to compudopt.org.
 6. Keep total written copy at **1,200–2,000 words** (excluding Sources). `npm run wordcount` should report it.
 7. Accessibility: semantic HTML, alt text, keyboard-usable interactives, visible focus, color contrast AA, and `prefers-reduced-motion` must skip/shorten every animation.
 8. Must work at 375px wide (phone) with no horizontal scroll.
