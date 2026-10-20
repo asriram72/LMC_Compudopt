@@ -1,0 +1,167 @@
+{
+  "_readme": "Every number on the site comes from this file. Each fact has a `src` key that matches an id in references.json. Do not add a number to the site without adding it here with a source. Retrieved/verified 2026-10-20.",
+
+  "compudoptCumulative": {
+    "_note": "Live counters on compudopt.org homepage, read 2026-10-20. Use these for the hero stat bar. They supersede the older 711,000 lb e-waste figure.",
+    "src": "compudopt-home",
+    "livesImpacted": { "value": 1000000, "label": "lives impacted", "suffix": "+" },
+    "computersDistributed": { "value": 200000, "label": "computers distributed", "suffix": "+" },
+    "householdsConnected": { "value": 61000, "label": "households connected to internet", "suffix": "+" },
+    "studentsTechEd": { "value": 185000, "label": "students served with tech education", "suffix": "+" },
+    "ewastePounds": { "value": 945000, "label": "pounds of e-waste recycled", "suffix": "+" }
+  },
+
+  "compudopt2025": {
+    "_note": "2025 Annual Report 'By the Numbers' page + PDF.",
+    "src": "compudopt-ar2025",
+    "computersDistributed": 41970,
+    "distributionEvents": 319,
+    "studentsTechEd": 4500,
+    "cohortsTaught": 239,
+    "digitalLifeFairAttendees": 8123,
+    "householdsConnected": 10277,
+    "ewastePounds": 234119,
+    "devicesProcessedITAD": 37759,
+    "cities": 120,
+    "newCities": 33,
+    "states": 21,
+    "communityPartners": "240+",
+    "outcomes": [
+      { "pct": 79, "label": "of adult recipients use their computer daily for work or school" },
+      { "pct": 84, "label": "of kids use their computer for schoolwork" },
+      { "pct": 91, "label": "of tech-ed students gained tech confidence" },
+      { "pct": 81, "label": "of tech-ed students are more interested in STEM careers" }
+    ],
+    "studentProgramRating": "4.8 / 5"
+  },
+
+  "compudoptGrowth": {
+    "_note": "Cumulative milestones for a growth chart. Each point is a separate dated source.",
+    "computers": [
+      { "date": "2023-03", "value": 65000, "src": "compudopt-santander-atl" },
+      { "date": "2025-11", "value": 160000, "src": "compudopt-2025-release" },
+      { "date": "2026-10", "value": 200000, "src": "compudopt-home" }
+    ],
+    "households": [
+      { "date": "2023-03", "value": 1000, "src": "compudopt-santander-atl" },
+      { "date": "2025-11", "value": 51000, "src": "compudopt-2025-release" },
+      { "date": "2026-10", "value": 61000, "src": "compudopt-home" }
+    ],
+    "ewastePounds": [
+      { "date": "2025-11", "value": 711000, "src": "compudopt-2025-release" },
+      { "date": "2026-10", "value": 945000, "src": "compudopt-home" }
+    ],
+    "founded": 2007
+  },
+
+  "atlanta": {
+    "office": { "name": "Compudopt Atlanta", "address": "760 Bolton Road, Atlanta, GA 30331", "src": "compudopt-contact", "_verify": "Call 855-532-5060 to confirm drop-off hours before publishing. An older article places Compudopt Atlanta in Forest Park." },
+    "expandedToAtlanta": { "year": 2021, "src": "compudopt-cdc-atl" },
+    "metroResidentsWithoutComputerOrInternet": { "value": 500000, "label": "people in metro Atlanta without a home computer and/or high-speed internet", "src": "compudopt-santander-atl" },
+    "santanderInvestment": { "dollars": 7000000, "date": "2023-03-20", "goals": { "computers": 7500, "households": 10000, "peopleTrained": 24000 }, "src": "compudopt-santander-atl" },
+    "cdcFoundationDonation": { "computers": 1600, "beneficiaries": 2000, "date": "2024-05", "src": "compudopt-cdc-atl" },
+    "computersToDateMid2024": { "value": 8000, "label": "free computers given in metro Atlanta by July 2024", "src": "compudopt-cdc-atl" },
+    "trainingSessionsMid2024": { "value": 10000, "src": "compudopt-cdc-atl" },
+    "claytonGiveaway": { "laptops": 200, "date": "2025-04", "src": "rhoads-2025" },
+    "covingtonATT": { "laptops": 100, "date": "2025-07", "src": "queen-2025" },
+    "beltlineBroadbandGap": { "low": 25, "high": 33, "label": "% of residents in some BeltLine areas without broadband", "src": "beltline-2023" },
+    "partners2025": ["Boys & Girls Club of Metro Atlanta", "Clayton County Community Services Authority", "Cummins", "DeKalb County Chamber of Commerce", "Douglas County School Foundation", "Georgia Power", "Georgia's Own Credit Union", "Intuitive", "Legacy of Pearls", "LexisNexis Risk Solutions", "Microsoft", "State Farm", "Unum"],
+    "partners2025Src": "compudopt-ar2025",
+    "microCenter": { "note": "Micro Center stores accept working laptops/desktops for Compudopt, including 2 Atlanta-area stores.", "src": "microcenter-2024" }
+  },
+
+  "georgiaTech": {
+    "windows10": { "pcsAtRisk": 240000000, "label": "PCs that could be landfilled after Windows 10 support ended", "researchers": ["Cindy Lin", "Josiah Hester"], "date": "2025-10-23", "src": "gt-windows10-2025" },
+    "surplusFY2023": { "electronicsRecycledLbs": 69000, "surplusSalesDollars": 900000, "src": "gt-surplus-2023" },
+    "zeroWasteGoal": { "year": 2050, "text": "Our goal is to reach zero waste by 2050", "src": "gt-circular" },
+    "sustainabilityNextPriorities": { "items": ["Institute Operations", "Education for Sustainable Development", "Leading Sustainability Research", "Culture and Organization", "Climate Solutions", "Living Learning Campus"], "src": "gt-sustnext-2022" }
+  },
+
+  "global": {
+    "ewasteGenerated2022Mt": { "value": 62, "src": "itu-2024" },
+    "ewasteRecycled2022Pct": { "value": 22.3, "src": "itu-2024" },
+    "ewasteRecycled2022Mt": { "value": 13.8, "_note": "62 x 22.3%", "src": "itu-2024" },
+    "ewasteProjected2030Mt": { "value": 82, "src": "itu-2024" },
+    "headline": { "text": "E-waste is rising five times faster than documented recycling", "src": "itu-2024" },
+    "ghana": { "place": "Agbogbloshie, Accra, Ghana", "note": "Major dump site for e-waste exported from the US and Europe; workers burn cables to recover metal", "src": "shaw-2019" },
+    "laptopProductionCarbonShare": { "low": 35, "high": 56, "label": "% of a laptop's lifetime carbon footprint comes from making it", "src": "prakash-2012" },
+    "usLowIncomeNoComputerPct": { "value": 41, "label": "of US adults earning under $30K have no desktop or laptop", "src": "pew-2021" },
+    "usLowIncomeNoBroadbandPct": { "value": 43, "label": "of US adults earning under $30K have no home broadband", "src": "pew-2021" },
+    "usHouseholdsWithoutComputerOrInternet": { "value": 18000000, "label": "US households lack a computer or internet at home", "src": "compudopt-home" },
+    "chicago": { "householdsNoComputer": 260000, "compudoptComputers": 16000, "src": ["chicago-mayor-2023", "chicago-impact"] },
+    "appState": { "laptopsToFirstYears": 200, "date": "2026-09", "src": "appstate-2026" }
+  },
+
+  "sdg9": {
+    "goal": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation",
+    "primaryTarget": { "id": "9.c", "short": "Significantly increase access to information and communications technology", "src": "un-sdg9" },
+    "secondaryTarget": { "id": "9.4", "short": "Upgrade infrastructure and retrofit industries to make them sustainable, with greater resource-use efficiency", "src": "un-sdg9" },
+    "alsoTouches": ["4.4 digital skills", "10.2 inclusion", "12.5 reduce waste through reuse and recycling"]
+  },
+
+  "donation": {
+    "src": "compudopt-donate",
+    "steps": [
+      { "title": "Drop off", "body": "Bring devices to a Compudopt drop-off location or a partner Micro Center. Ask for a tax receipt." },
+      { "title": "Data wiped", "body": "Staff erase every drive to the NIST 800-88 standard, a multi-pass wipe so no data survives." },
+      { "title": "Refurbish or recycle", "body": "Usable machines are refurbished. Anything that can't be reused goes to R2 or e-Stewards certified recyclers." },
+      { "title": "Delivered free", "body": "Refurbished computers go free to families and students who don't have one at home." }
+    ],
+    "accepted": ["Laptops", "Desktops", "LCD/LED monitors", "Tablets", "Phones and mobile devices", "Peripherals (keyboards, mice, cables)", "Components (RAM, CPUs, HDDs, SSDs)", "Servers and storage", "VoIP phones", "Networking equipment"],
+    "notAccepted": ["CRT monitors", "Large TVs", "Printers and copiers", "Household appliances"],
+    "brokenOk": "Broken computers and computers missing cords are accepted as long as the hard drive is intact.",
+    "microCenterNote": "Micro Center drop-off takes working laptops and desktops only.",
+    "taxDeductible": true
+  },
+
+  "volunteer": {
+    "src": "compudopt-volunteer",
+    "atlantaListed": true,
+    "roles": ["Warehouse prep", "Laptop giveaway events", "On-site tech trainings", "Photo/video capture"],
+    "individualForm": "https://airtable.com/appVSgTtRRVxic3SW/pagSzpotfOvIkIEsD/form",
+    "groupForm": "https://airtable.com/appVSgTtRRVxic3SW/pagLIZiHmHCgSTEEv/form",
+    "phone": "855-532-5060",
+    "email": "info@compudopt.org"
+  },
+
+  "stories": [
+    { "name": "Carlos", "type": "video + recipient story", "youtubeId": "A2je5Ut1JPY", "src": ["compudopt-2025-release", "yt-carlos"] },
+    { "name": "Tamria Matondo", "type": "recipient Q&A", "quote": "That blue bag has changed our household.", "context": "Her laptop broke near the end of the school year and she had lost library internet access; her two kids received computers.", "src": "compudopt-ar2025" },
+    { "name": "April", "type": "recipient story", "src": "compudopt-2025-release", "_todo": "Pull details from the Nov 2025 release in Access World News" },
+    { "name": "Houston students and GED learner", "type": "quotes", "people": ["Lisa Wortham", "Alan Bonilla", "Lorena Ramirez"], "src": "thomas-2024" },
+    { "name": "San Angelo veterans", "type": "quotes", "src": "banda-2026" }
+  ],
+
+  "videos": [
+    { "id": "A2je5Ut1JPY", "title": "Compudopt Carlos", "length": "2:49", "use": "Stories section (primary required video)" },
+    { "id": "LSPzD6ovbFQ", "title": "Compudopt Santander Digital Equity Video", "length": "2:03", "use": "Atlanta spotlight (Santander funded the $7M Atlanta program)" },
+    { "id": "dkiNbIi0rrE", "title": "Compudopt Digital Equity", "length": "1:41", "use": "Backup / Meet Compudopt" },
+    { "id": "PJVlvGM1O0Q", "title": "Compudopt Donate Computers!", "length": "0:19", "use": "Optional, Take Action" }
+  ],
+
+  "programStates": {
+    "_note": "States in the 'find your location' selector on compudopt.org/program-locations (2026-10-20). The 2025 annual report says 21 states served in 2025, so label the map 'states where Compudopt runs programs'.",
+    "src": "compudopt-locations",
+    "states": ["AZ", "CA", "CO", "DC", "FL", "GA", "IL", "IN", "IA", "KY", "LA", "MI", "MS", "MO", "NV", "OH", "OK", "PA", "TN", "TX", "UT", "VA", "WA", "WV", "WI"],
+    "hubs": [
+      { "city": "Atlanta", "state": "GA", "lat": 33.749, "lon": -84.388 },
+      { "city": "Houston", "state": "TX", "lat": 29.760, "lon": -95.370 },
+      { "city": "Dallas", "state": "TX", "lat": 32.777, "lon": -96.797 },
+      { "city": "Chicago", "state": "IL", "lat": 41.878, "lon": -87.630 },
+      { "city": "Mesa", "state": "AZ", "lat": 33.415, "lon": -111.831 }
+    ],
+    "hubsSrc": "compudopt-contact"
+  },
+
+  "brand": {
+    "_note": "Sampled from compudopt.org computed styles, 2026-10-20.",
+    "navy": "#193460",
+    "blue": "#1D76BB",
+    "green": "#8EC441",
+    "ink": "#192434",
+    "slate": "#5B687B",
+    "mist": "#F1F4F7",
+    "fontBody": "Figtree",
+    "fontSerif": "Merriweather"
+  }
+}
