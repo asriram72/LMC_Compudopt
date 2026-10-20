@@ -80,14 +80,6 @@
     @apply text-inherit;
   }
 
-  .placeholder {
-    @apply border-current/30 text-slate;
-  }
-
-  .tone-dark .placeholder {
-    @apply text-white/80;
-  }
-
   .tone-dark .text-slate {
     @apply text-white/80;
   }
