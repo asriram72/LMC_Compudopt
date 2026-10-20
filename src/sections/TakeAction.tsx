@@ -1,5 +1,5 @@
 import { copy } from '../content/copy'
-import { Placeholder } from '../components/Placeholder'
+import { DonationChecker } from '../components/interactive/DonationChecker'
 import { Block, P, Section } from '../components/Section'
 
 const c = copy.takeAction
@@ -9,7 +9,7 @@ export function TakeAction() {
     <Section id="takeAction" tone="mist" headline={c.headline} takeaway={c.takeaway}>
       <p className="max-w-[68ch] text-lg">{c.intro}</p>
       <div className="mt-8">
-        <Placeholder name="DonationChecker" note="P6: device → condition → result + checklist." tall />
+        <DonationChecker />
       </div>
       <div className="mt-16 grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl bg-white p-6 md:p-8">

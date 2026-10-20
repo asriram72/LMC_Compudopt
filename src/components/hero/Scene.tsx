@@ -3,6 +3,7 @@
 // Only transforms, opacity and pathLength change, so it stays smooth.
 import { motion, useTransform, type MotionValue } from 'motion/react'
 import { useId, useLayoutEffect, useRef } from 'react'
+import { Laptop } from '../illustrations/Laptop'
 import { ARCS, ATLANTA, HUBS, US_STATES, US_WIDTH } from '../../lib/geo'
 
 const C = {
@@ -38,17 +39,6 @@ function useSvgTransform<T extends SVGElement>(value: MotionValue<string>) {
     return value.on('change', set)
   }, [value])
   return ref
-}
-
-// Laptop drawn around its own center: lid -62…43, base 43…55.
-function Laptop({ lid, screen, base }: { lid: string; screen: string; base: string }) {
-  return (
-    <>
-      <rect x={-80} y={-62} width={160} height={105} rx={8} fill={lid} />
-      <rect x={-70} y={-53} width={140} height={86} rx={3} fill={screen} />
-      <rect x={-95} y={43} width={190} height={12} rx={6} fill={base} />
-    </>
-  )
 }
 
 // Pile: 4 + 3 + 1, bottoms resting on the ground line at y = 760.

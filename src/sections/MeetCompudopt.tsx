@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { copy } from '../content/copy'
-import { Placeholder } from '../components/Placeholder'
+import { DeviceJourney } from '../components/interactive/DeviceJourney'
 import { StatGrid } from '../components/charts/StatGrid'
 import { P, Section } from '../components/Section'
 
@@ -16,7 +16,7 @@ export function MeetCompudopt() {
       <P text={c.intro} className="max-w-[68ch] text-lg leading-relaxed" />
       <div className="mt-16 space-y-6">
         <h3 className="text-2xl font-bold tracking-tight md:text-3xl">{c.journey.heading}</h3>
-        <Placeholder name="DeviceJourney" note="P6: 4-step stepper from copy.meetCompudopt.journey.steps." />
+        <DeviceJourney />
       </div>
       <div className="mt-16 space-y-6">
         <h3 className="text-2xl font-bold tracking-tight md:text-3xl">{c.numbers.heading}</h3>
