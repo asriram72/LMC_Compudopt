@@ -1,9 +1,11 @@
 import { lazy, Suspense } from 'react'
 import { copy } from '../content/copy'
-import { Placeholder } from '../components/Placeholder'
 import { Block, P, Section } from '../components/Section'
 
 const EwasteWorldMap = lazy(() => import('../components/maps/EwasteWorldMap'))
+const EwasteBars = lazy(() => import('../components/charts/EwasteBars'))
+const Waffle = lazy(() => import('../components/charts/Waffle'))
+const CarbonSplit = lazy(() => import('../components/charts/CarbonSplit'))
 
 const c = copy.problem
 
@@ -15,7 +17,9 @@ export function Problem() {
         <Block heading={c.ewaste.heading}>
           <P text={c.ewaste.body} />
         </Block>
-        <Placeholder name="EwasteBars" />
+        <Suspense fallback={<div className="min-h-40" />}>
+          <EwasteBars />
+        </Suspense>
       </div>
       <div className="mt-20 space-y-6">
         <Block heading={c.worldMap.heading}>
@@ -30,13 +34,17 @@ export function Problem() {
         <Block heading={c.divide.heading}>
           <P text={c.divide.body} />
         </Block>
-        <Placeholder name="Waffle" />
+        <Suspense fallback={<div className="min-h-40" />}>
+          <Waffle />
+        </Suspense>
       </div>
       <div className="mt-20 space-y-6">
         <Block heading={c.reuse.heading}>
           <P text={c.reuse.body} />
         </Block>
-        <Placeholder name="CarbonSplit" />
+        <Suspense fallback={<div className="min-h-40" />}>
+          <CarbonSplit />
+        </Suspense>
         <p className="font-serif text-3xl leading-snug font-bold md:text-4xl">{c.reuse.kicker}</p>
       </div>
     </Section>

@@ -52,6 +52,8 @@ export const copy = {
         recycled: 'Documented recycled',
         projected: 'Projected, 2030',
         annotation: 'Rising 5× faster than recycling',
+        unit: 'million tonnes',
+        caption: 'Global e-waste in million tonnes (Mt). {{cite:itu-2024}}',
       },
     },
     worldMap: {
@@ -69,12 +71,17 @@ export const copy = {
         broadband: "43 of every 100 don't have home broadband",
         toggleComputer: 'No computer',
         toggleBroadband: 'No broadband',
+        toggleLabel: 'Show',
+        caption: 'US adults earning under $30,000 a year. {{cite:pew-2021}}',
       },
     },
     reuse: {
       heading: 'Why reuse beats recycling',
       body: 'Recycling recovers some of the materials. Reuse keeps the whole machine working. Between 35% and 56% of a laptop’s lifetime carbon footprint comes from manufacturing it, {{cite:prakash-2012}} so keeping a working laptop in use means that cost isn’t paid twice.',
       chartLabel: "A third to over half of a laptop's footprint happens before you ever open it.",
+      making: 'Making it: 35–56%',
+      using: 'Using it: the rest',
+      caption: 'Share of a laptop’s lifetime carbon footprint. The hatched band shows the range the study reports. {{cite:prakash-2012}}',
       kicker: 'The greenest laptop is the one that already exists.',
     },
   },
@@ -164,6 +171,11 @@ export const copy = {
     growth: {
       heading: 'Growing fast',
       caption: 'Total computers Compudopt has distributed, all locations.',
+      points: [
+        'March 2023: 65,000 {{cite:compudopt-santander-atl}}',
+        'November 2025: 160,000 {{cite:compudopt-2025-release}}',
+        'October 2026: 200,000+ {{cite:compudopt-home}}',
+      ],
     },
     outcomes: {
       heading: 'What a computer changes',
