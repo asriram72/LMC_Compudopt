@@ -1,6 +1,9 @@
+import { lazy, Suspense } from 'react'
 import { copy } from '../content/copy'
 import { Placeholder } from '../components/Placeholder'
-import { Block, P, Section } from '../components/Section'
+import { P, Section } from '../components/Section'
+
+const UsProgramMap = lazy(() => import('../components/maps/UsProgramMap'))
 
 const c = copy.meetCompudopt
 
@@ -17,10 +20,10 @@ export function MeetCompudopt() {
         <Placeholder name="StatGrid" note="P5: 2025 by the numbers." />
       </div>
       <div className="mt-16 space-y-6">
-        <Block heading={c.map.heading}>
-          <p>{c.map.hint}</p>
-        </Block>
-        <Placeholder name="UsProgramMap" note="P4: clickable map + Atlanta spotlight panel." tall />
+        <h3 className="text-2xl font-bold tracking-tight md:text-3xl">{c.map.heading}</h3>
+        <Suspense fallback={<div className="aspect-[975/610] w-full" />}>
+          <UsProgramMap />
+        </Suspense>
       </div>
       <div className="mt-16 grid gap-10 md:grid-cols-2">
         <div className="space-y-4">
