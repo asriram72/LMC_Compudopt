@@ -1,5 +1,6 @@
 // The hero's SVG scene, driven entirely by a 0→1 progress value.
-// Storyboard (PLAN.md §2): pile-up → rescue → refurbish → hand-off → zoom out to the US map.
+// Storyboard: one laptop up close → camera pulls back as a big pile builds under it →
+// rescue → refurbish → hand-off → zoom out to the US map.
 // Only transforms, opacity and pathLength change, so it stays smooth.
 import { motion, useTransform, type MotionValue } from 'motion/react'
 import { useId, useLayoutEffect, useRef } from 'react'
@@ -41,26 +42,34 @@ function useSvgTransform<T extends SVGElement>(value: MotionValue<string>) {
   return ref
 }
 
-// Pile: 4 + 3 + 1, bottoms resting on the ground line at y = 760.
-const PILE = [
-  { x: 230, y: 705, r: -5 },
-  { x: 410, y: 705, r: 3 },
-  { x: 590, y: 705, r: -2 },
-  { x: 770, y: 705, r: 5 },
-  { x: 320, y: 610, r: 7 },
-  { x: 500, y: 612, r: -4 },
-  { x: 680, y: 610, r: 3 },
-  { x: 420, y: 515, r: -9 },
-]
+// Pile: rows of 8-7-6-5-4-3 smaller laptops (33 total), bottom row resting on the
+// ground at y = 760. The hero laptop sits on top of the middle of the top row.
+const PILE_SCALE = 0.8
+const ROWS = [8, 7, 6, 5, 4, 3]
+const PILE = ROWS.flatMap((n, row) =>
+  Array.from({ length: n }, (_, j) => {
+    const i = ROWS.slice(0, row).reduce((a, b) => a + b, 0) + j
+    return {
+      x: 500 + (j - (n - 1) / 2) * 110 + (((i * 53) % 17) - 8),
+      y: 716 - row * 70,
+      r: ((i * 37) % 13) - 6,
+    }
+  }),
+)
+const HERO_REST = { x: 500, y: 296 }
+
+// Opening camera: starts zoomed in on the hero laptop, pulls back to the full pile by 0.19.
+const ZOOM_START = 2.6
+const ZOOM_END_AT = 0.19
 
 function PileLaptop({ progress, i }: { progress: MotionValue<number>; i: number }) {
   const { x, y, r } = PILE[i]
-  // The first two are already down at progress 0, so the opening frame isn't empty.
-  const start = i < 2 ? -1 : (i - 2) * 0.022
-  const range = [start, start + 0.04]
-  const dy = useTransform(progress, range, [-900, 0])
-  const opacity = useTransform(progress, range, [0, 1])
-  const transform = useTransform(() => `translate(${x} ${y + dy.get()}) rotate(${r})`)
+  // Bottom row first, so the heap builds upward while the camera pulls back.
+  const start = 0.02 + i * (0.14 / PILE.length)
+  const range = [start, start + 0.035]
+  const dy = useTransform(progress, range, [-500, 0])
+  const opacity = useTransform(progress, [start, start + 0.01], [0, 1])
+  const transform = useTransform(() => `translate(${x} ${y + dy.get()}) rotate(${r}) scale(${PILE_SCALE})`)
   const ref = useSvgTransform<SVGGElement>(transform)
   return (
     <motion.g ref={ref} style={{ opacity }}>
@@ -70,13 +79,12 @@ function PileLaptop({ progress, i }: { progress: MotionValue<number>; i: number 
 }
 
 function HeroLaptop({ progress, glowId }: { progress: MotionValue<number>; glowId: string }) {
-  // Drop onto the pile → lift and glow → hold for refurbish → into the student's hands.
-  const x = useTransform(progress, [0.2, 0.34, 0.6, 0.72], [580, 500, 500, 640])
-  const y = useTransform(progress, [0.15, 0.19, 0.2, 0.34, 0.6, 0.72], [-350, 515, 515, 420, 420, 640])
-  const s = useTransform(progress, [0.2, 0.34, 0.6, 0.72], [1, 1.7, 1.7, 1.15])
-  const r = useTransform(progress, [0.2, 0.34], [6, 0])
+  // Alone at first, then on top of the pile → lift and glow → hold for refurbish → into the student's hands.
+  const x = useTransform(progress, [0.2, 0.34, 0.6, 0.72], [HERO_REST.x, 500, 500, 640])
+  const y = useTransform(progress, [0.2, 0.34, 0.6, 0.72], [HERO_REST.y, 250, 250, 640])
+  const s = useTransform(progress, [0.2, 0.34, 0.6, 0.72], [1, 1.6, 1.6, 1.15])
+  const r = useTransform(progress, [0.2, 0.34], [3, 0])
   const transform = useTransform(() => `translate(${x.get()} ${y.get()}) rotate(${r.get()}) scale(${s.get()})`)
-  const opacity = useTransform(progress, [0.15, 0.16], [0, 1])
 
   const glow = useTransform(progress, [0.22, 0.32], [0, 0.85])
   const greenLid = useTransform(progress, [0.24, 0.34], [0, 1])
@@ -91,7 +99,7 @@ function HeroLaptop({ progress, glowId }: { progress: MotionValue<number>; glowI
   const barRef = useSvgTransform<SVGRectElement>(barTransform)
 
   return (
-    <motion.g ref={ref} style={{ opacity }}>
+    <motion.g ref={ref}>
       <motion.rect x={-120} y={-95} width={240} height={180} rx={50} fill={C.green} filter={`url(#${glowId})`} style={{ opacity: glow }} />
       <Laptop lid={C.waste} screen={C.screenOff} base={C.wasteDark} />
       <motion.g style={{ opacity: greenLid }}>
@@ -193,7 +201,18 @@ export function Scene({ progress, label }: { progress: MotionValue<number>; labe
   )
   const storyOpacity = useTransform(progress, [0.84, 0.9], [1, 0])
   const pileOpacity = useTransform(progress, [0.2, 0.32, 0.6, 0.7], [1, 0.35, 0.35, 0])
-  const groundOpacity = useTransform(progress, [0.6, 0.7], [1, 0])
+  const groundOpacity = useTransform(progress, [0.02, 0.1, 0.6, 0.7], [0, 1, 1, 0])
+
+  // Opening camera: scale about the hero laptop, which moves from the frame's center
+  // (500, 400) at ZOOM_START to its spot on the pile at zoom 1 (identity).
+  const zoom = useTransform(progress, [0, ZOOM_END_AT], [ZOOM_START, 1])
+  const cameraTransform = useTransform(() => {
+    const z = zoom.get()
+    const t = (ZOOM_START - z) / (ZOOM_START - 1)
+    const sy = 400 + (HERO_REST.y - 400) * t
+    return `translate(${500 - HERO_REST.x * z} ${sy - HERO_REST.y * z}) scale(${z})`
+  })
+  const cameraRef = useSvgTransform<SVGGElement>(cameraTransform)
   const storyRef = useSvgTransform<SVGGElement>(storyTransform)
   const glowId = `glow${useId().replace(/:/g, '')}`
 
@@ -206,15 +225,17 @@ export function Scene({ progress, label }: { progress: MotionValue<number>; labe
       </defs>
       <UsMapScene progress={progress} />
       <motion.g ref={storyRef} style={{ opacity: storyOpacity }}>
-        <motion.line x1={80} x2={920} y1={760} y2={760} stroke={C.waste} strokeWidth={3} strokeLinecap="round" style={{ opacity: groundOpacity }} />
-        <motion.g style={{ opacity: pileOpacity }}>
-          {PILE.map((_, i) => (
-            <PileLaptop key={i} progress={progress} i={i} />
-          ))}
-        </motion.g>
-        <Student progress={progress} />
-        <HeroLaptop progress={progress} glowId={glowId} />
-        <StudentFront progress={progress} />
+        <g ref={cameraRef}>
+          <motion.line x1={80} x2={920} y1={760} y2={760} stroke={C.waste} strokeWidth={3} strokeLinecap="round" style={{ opacity: groundOpacity }} />
+          <motion.g style={{ opacity: pileOpacity }}>
+            {PILE.map((_, i) => (
+              <PileLaptop key={i} progress={progress} i={i} />
+            ))}
+          </motion.g>
+          <Student progress={progress} />
+          <HeroLaptop progress={progress} glowId={glowId} />
+          <StudentFront progress={progress} />
+        </g>
       </motion.g>
     </svg>
   )
