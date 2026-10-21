@@ -18,8 +18,7 @@ export function Stories() {
     <Section id="stories" headline={c.headline} takeaway={c.takeaway}>
       <div className="grid gap-10 md:grid-cols-[2fr_3fr] md:items-center">
         <Block heading={c.video.heading}>
-          <p>{c.video.intro}</p>
-          <P text={c.video.cite} className="text-sm text-slate" />
+          <P text={c.video.intro} />
         </Block>
         <YouTube id={carlos.youtubeId!} title={c.video.title} playLabel={c.video.play} />
       </div>

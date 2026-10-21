@@ -192,10 +192,9 @@ export const copy = {
     video: {
       heading: 'Meet Carlos',
       intro:
-        'Carlos is one of the people behind our numbers. In under three minutes, he tells you what having a computer of his own has meant. Hit play.',
+        'On his first day at Mesa Community College, Carlos was one of only two students in class without a laptop or iPad. He was already working and paying bills, and he panicked. Then his adviser called him in: Compudopt had a computer for him. Now he uses it every day. {{cite:yt-carlos}}',
       title: 'Compudopt Carlos',
       play: 'Play video',
-      cite: 'Video {{cite:yt-carlos}}',
     },
     quote: {
       text: 'That blue bag has changed our household.',
@@ -321,6 +320,7 @@ export const copy = {
         'Spread the word with our flyer and collect in your dorm, lab or org meeting.',
       ],
       flyer: 'Download the flyer',
+      flyerAlt: 'Our flyer, “Give your old tech a new life!”, with a QR code to Compudopt’s donate page.',
     },
     need: {
       heading: 'Need a computer yourself?',

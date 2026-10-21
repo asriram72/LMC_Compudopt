@@ -6,8 +6,8 @@ import { Block, P, Section } from '../components/Section'
 
 const c = copy.takeAction
 const v = facts.volunteer
-// The team's Unit 1 flyer. Set to a file in /public (e.g. 'flyer.pdf') once someone adds it.
-const FLYER_FILE: string | null = null
+// The team's Unit 1 flyer, in /public.
+const FLYER_FILE: string | null = 'flyer.jpg'
 
 const card = 'rounded-3xl bg-white p-6 md:p-8'
 
@@ -50,9 +50,21 @@ export function TakeAction() {
             </ol>
           </Block>
           {FLYER_FILE && (
-            <a href={`${import.meta.env.BASE_URL}${FLYER_FILE}`} download className="btn-ghost mt-5 px-5 py-2">
-              {c.drive.flyer}
-            </a>
+            <div className="mt-5 flex items-end gap-4">
+              <a href={`${import.meta.env.BASE_URL}${FLYER_FILE}`} className="shrink-0">
+                <img
+                  src={`${import.meta.env.BASE_URL}${FLYER_FILE}`}
+                  alt={c.drive.flyerAlt}
+                  loading="lazy"
+                  width={80}
+                  height={200}
+                  className="h-auto w-20 rounded-md shadow-md ring-1 ring-navy/10"
+                />
+              </a>
+              <a href={`${import.meta.env.BASE_URL}${FLYER_FILE}`} download="compudopt-gt-flyer.jpg" className="btn-ghost px-5 py-2">
+                {c.drive.flyer}
+              </a>
+            </div>
           )}
         </div>
         <div className={card}>

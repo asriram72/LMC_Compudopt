@@ -133,7 +133,10 @@
   },
 
   "stories": [
-    { "name": "Carlos", "type": "video + recipient story", "youtubeId": "A2je5Ut1JPY", "src": ["compudopt-2025-release", "yt-carlos"] },
+    { "name": "Carlos", "type": "video + recipient story", "youtubeId": "A2je5Ut1JPY", "src": ["compudopt-2025-release", "yt-carlos"],
+      "school": "Mesa Community College",
+      "story": "On his first day, he and a friend were the only students without a laptop or iPad. He was already working and paying bills and panicked. Through the college's new partnership with Compudopt, his adviser told him Compudopt had donated a computer for him. He now uses it every day and is working with Compudopt himself.",
+      "storySrc": "yt-carlos", "_note": "From the team's summary of the video (watched 2026-10-20)." },
     { "name": "Tamria Matondo", "type": "recipient Q&A", "quote": "That blue bag has changed our household.", "context": "Her laptop broke near the end of the school year and she had lost library internet access; her two kids received computers.", "src": "compudopt-ar2025" },
     { "name": "April", "type": "recipient story", "src": "compudopt-2025-release", "_todo": "Pull details from the Nov 2025 release in Access World News" },
     { "name": "Houston students and GED learner", "type": "quotes", "people": ["Lisa Wortham", "Alan Bonilla", "Lorena Ramirez"], "src": "thomas-2024" },
