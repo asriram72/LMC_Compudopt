@@ -45,3 +45,4 @@ One-time setup (repo owner): **Settings → Pages → Build and deployment → S
 | P6 | Device Journey stepper and Donation Checker |
 | P7 | Carlos video, case studies, Take Action cards; filled in YouTube citation dates |
 | P8 | Deploy setup, favicon, this README |
+| P8+ | Added the team's Unit 1 flyer to Run a drive; Carlos intro rewritten from the team's notes on the video |
