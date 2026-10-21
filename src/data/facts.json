@@ -1,6 +1,13 @@
 {
   "_readme": "Every number on the site comes from this file. Each fact has a `src` key that matches an id in references.json. Do not add a number to the site without adding it here with a source. Retrieved/verified 2026-10-20.",
 
+  "compudoptAbout": {
+    "_note": "About page, read 2026-10-20.",
+    "src": "compudopt-about",
+    "mission": "Our mission is to provide technology access and education to under-resourced youth and their communities.",
+    "founded": 2007
+  },
+
   "compudoptCumulative": {
     "_note": "Live counters on compudopt.org homepage, read 2026-10-20. Use these for the hero stat bar. They supersede the older 711,000 lb e-waste figure.",
     "src": "compudopt-home",
@@ -51,7 +58,8 @@
       { "date": "2025-11", "value": 711000, "src": "compudopt-2025-release" },
       { "date": "2026-10", "value": 945000, "src": "compudopt-home" }
     ],
-    "founded": 2007
+    "founded": 2007,
+    "foundedSrc": "compudopt-about"
   },
 
   "atlanta": {
