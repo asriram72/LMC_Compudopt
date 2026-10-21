@@ -58,6 +58,8 @@ export const copy = {
       heading: 'Where dumped devices go',
       body: 'Agbogbloshie, in Accra, Ghana, is a major dumping ground for e-waste exported from the US and Europe. Workers there burn cables to get at the metal inside, breathing the fumes. {{cite:shaw-2019}}',
       contrast: 'That is where dumped devices go. Donated devices stay here, in our community.',
+      alt: 'World map with gray-brown lines running from the United States and western Europe to Accra, Ghana, where Agbogbloshie is.',
+      labels: { us: 'United States', europe: 'Western Europe', accra: 'Agbogbloshie, Accra' },
     },
     divide: {
       heading: 'Meanwhile, students go without',
@@ -142,6 +144,12 @@ export const copy = {
         'States where Compudopt runs programs. Arcs are illustrative, drawn from regional hubs. {{cite:compudopt-locations}}',
       hint: 'Select Georgia to see what’s happening in Atlanta.',
       tooltip: 'Compudopt programs here',
+      alt: 'Map of the United States. States where Compudopt runs programs are green, with arcs from hubs in Atlanta, Houston, Dallas, Chicago and Mesa.',
+      legendServed: 'Program states',
+      legendOther: 'Other states',
+      legendHub: 'Regional hub',
+      listLabel: 'States where Compudopt runs programs',
+      openSpotlight: 'open the Atlanta spotlight',
     },
     spotlight: {
       heading: 'Spotlight: Atlanta',
@@ -149,6 +157,7 @@ export const copy = {
       santander:
         'A $7 million investment from Santander in 2023, with goals of 7,500 computers, 10,000 connected households and 24,000 people trained. {{cite:compudopt-santander-atl}}',
       cdc: '1,600 computers donated by the CDC Foundation for Atlanta students, reaching about 2,000 people. {{cite:compudopt-cdc-atl}}',
+      need: 'More than 500,000 people in metro Atlanta lack a home computer and/or high-speed internet. {{cite:compudopt-santander-atl}}',
       partnersLabel: '2025 Atlanta partners include {{cite:compudopt-ar2025}}',
       close: 'Close',
     },
