@@ -49,7 +49,7 @@ function Caption({ progress, i }: { progress: MotionValue<number>; i: number }) 
   return (
     <motion.p
       style={{ opacity, visibility, y }}
-      className="[grid-area:1/1] mx-auto max-w-[26ch] self-end text-center text-2xl leading-tight font-bold text-navy md:text-4xl"
+      className="[grid-area:1/1] mx-auto max-w-[26ch] self-end text-center text-2xl leading-tight font-bold text-navy md:max-w-[40ch] md:text-3xl"
     >
       <Prose text={c.scenes[i]} />
     </motion.p>
@@ -79,7 +79,7 @@ function Pinned() {
   return (
     <section ref={track} aria-labelledby="hero-heading" className="relative h-[300vh] md:h-[400vh]">
       <div className="sticky top-16 h-[calc(100svh-4rem)] overflow-hidden bg-gradient-to-b from-white to-mist">
-        <div className="absolute inset-x-0 top-0 bottom-36 sm:bottom-28 md:bottom-0">
+        <div className="absolute inset-x-0 top-0 bottom-36 [mask-image:linear-gradient(to_bottom,black_88%,transparent)] sm:bottom-32 md:bottom-36">
           <Scene progress={progress} label={c.storyLabel} />
         </div>
 
