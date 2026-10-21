@@ -32,7 +32,10 @@ export const copy = {
       "Give the laptop you've outgrown to Compudopt Atlanta, and we'll get it to a metro Atlanta student who needs one.",
     ctaPrimary: 'Donate a device',
     ctaSecondary: 'See the impact',
-    statBarIntro: 'Since 2007, Compudopt has reached',
+    statBarIntro: 'Compudopt’s impact so far {{cite:compudopt-home}}',
+    storyLabel: 'A pile of discarded laptops; one is rescued, wiped, refurbished and handed to a student, then the view pulls back to a map of the states where Compudopt works.',
+    progressLabel: 'Story progress',
+    sceneButton: 'Go to scene',
   },
 
   problem: {

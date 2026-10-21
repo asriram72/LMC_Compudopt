@@ -1,7 +1,12 @@
 import { copy } from '../content/copy'
-import { Placeholder } from '../components/Placeholder'
+import { facts } from '../data/types'
+import { P } from '../components/Section'
+import { StatCounter } from '../components/StatCounter'
+import { ScrollStory } from '../components/hero/ScrollStory'
 
 const c = copy.hero
+const k = facts.compudoptCumulative
+const STATS = [k.livesImpacted, k.computersDistributed, k.householdsConnected, k.ewastePounds]
 
 export function Hero() {
   return (
@@ -9,23 +14,14 @@ export function Hero() {
       <a href="#hero-end" className="skip-link">
         {c.skip}
       </a>
-      <Placeholder name="ScrollStory" note="P3: pinned scroll-driven story, 5 scenes ending on the US map." tall />
-      <section id="hero-end" aria-labelledby="hero-heading" className="scroll-mt-16 bg-white py-16 md:py-24">
+      <ScrollStory />
+      <section id="hero-end" aria-label="Compudopt impact" className="scroll-mt-16 bg-white py-14 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <h1 id="hero-heading" className="max-w-[16ch] text-5xl leading-[1.02] font-extrabold tracking-tight text-navy md:text-7xl">
-            {c.headline}
-          </h1>
-          <p className="mt-6 max-w-[48ch] text-xl text-slate md:text-2xl">{c.subhead}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#takeAction" className="btn-cta px-6 py-3 text-lg">
-              {c.ctaPrimary}
-            </a>
-            <a href="#meetCompudopt" className="btn-ghost px-6 py-3 text-lg">
-              {c.ctaSecondary}
-            </a>
-          </div>
-          <div className="mt-14">
-            <Placeholder name="StatCounter" note="P3: count-up stat bar from facts.compudoptCumulative." />
+          <P text={c.statBarIntro} className="text-sm font-semibold tracking-widest text-slate uppercase" />
+          <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+            {STATS.map((s) => (
+              <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+            ))}
           </div>
         </div>
       </section>
