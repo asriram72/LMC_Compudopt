@@ -195,6 +195,7 @@ export const copy = {
         'Carlos is one of the people behind our numbers. In under three minutes, he tells you what having a computer of his own has meant. Hit play.',
       title: 'Compudopt Carlos',
       play: 'Play video',
+      cite: 'Video {{cite:yt-carlos}}',
     },
     quote: {
       text: 'That blue bag has changed our household.',
@@ -231,6 +232,7 @@ export const copy = {
       },
     ],
     readMore: 'Read more',
+    bridge: 'See how you can help',
     outro:
       'None of these started with a big budget. They started with someone deciding that a working computer shouldn’t sit in a closet. A company, a county office, a university, a city. Next, it could be a dorm floor, a lab or a student org at Georgia Tech.',
   },
@@ -309,6 +311,7 @@ export const copy = {
       body: 'Prep laptops in the warehouse, help at giveaway events, support tech trainings, or capture photos and video. Come solo or bring your whole org. {{cite:compudopt-volunteer}}',
       solo: 'Volunteer solo',
       group: 'Bring your org',
+      newTab: '(opens in a new tab)',
     },
     drive: {
       heading: 'Run a device drive',
