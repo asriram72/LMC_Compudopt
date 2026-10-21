@@ -135,6 +135,9 @@ export const copy = {
       cite: '{{cite:compudopt-donate}}',
       next: 'Next',
       back: 'Back',
+      step: 'Step',
+      stepsLabel: 'Steps',
+      swipeHint: 'Swipe or use the arrows to move through the steps.',
     },
     numbers: {
       heading: '2025 by the numbers',
@@ -261,6 +264,10 @@ export const copy = {
           title: 'Yes! We’ll take it.',
           body: 'Bring it to Compudopt Atlanta, or to a participating Micro Center. {{cite:compudopt-donate}}',
         },
+        acceptedCompudopt: {
+          title: 'Yes! Bring it to Compudopt.',
+          body: 'Compudopt Atlanta takes tablets, phones, monitors and parts. Micro Center drop-off only takes working laptops and desktops. {{cite:compudopt-donate}}',
+        },
         compudoptOnly: {
           title: 'Yes, but bring it to Compudopt.',
           body: 'Broken computers and ones missing cords are welcome as long as the hard drive is inside. Micro Center only takes working laptops and desktops. {{cite:compudopt-donate}}',
@@ -287,6 +294,8 @@ export const copy = {
       impact: 'Compudopt has distributed more than 200,000 computers. Yours could be next. {{cite:compudopt-home}}',
       tax: 'Donations are tax-deductible, so ask for a receipt.',
       startOver: 'Start over',
+      call: 'Call 855-532-5060',
+      where: 'Where to take it',
     },
     dropOff: {
       heading: 'Where to drop off',

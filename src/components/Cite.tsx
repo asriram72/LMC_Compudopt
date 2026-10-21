@@ -25,7 +25,7 @@ export function Cite({ ids }: { ids: string | string[] }) {
         <Fragment key={p.ref.id}>
           {i > 0 && '; '}
           <a href={`#ref-${p.ref.id}`}>
-            {p.inTextAuthor}, {labels.get(p.ref.id) ?? p.year}
+            {p.inTextAuthor}, <span className="whitespace-nowrap">{labels.get(p.ref.id) ?? p.year}</span>
           </a>
         </Fragment>
       ))}
