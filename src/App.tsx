@@ -1,9 +1,27 @@
-// Placeholder until P2 builds the page skeleton.
+import { Footer } from './components/Footer'
+import { Nav } from './components/Nav'
+import { Hero } from './sections/Hero'
+import { MeetCompudopt } from './sections/MeetCompudopt'
+import { Problem } from './sections/Problem'
+import { Sources } from './sections/Sources'
+import { Stories } from './sections/Stories'
+import { TakeAction } from './sections/TakeAction'
+import { WhyGT } from './sections/WhyGT'
+
 export default function App() {
   return (
-    <main className="mx-auto max-w-[68ch] px-4 py-24">
-      <h1 className="font-serif text-4xl font-black text-navy">Your old laptop is someone's first.</h1>
-      <p className="mt-4 text-slate">Compudopt × Georgia Tech. Site under construction.</p>
-    </main>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Problem />
+        <WhyGT />
+        <MeetCompudopt />
+        <Stories />
+        <TakeAction />
+        <Sources />
+      </main>
+      <Footer />
+    </>
   )
 }

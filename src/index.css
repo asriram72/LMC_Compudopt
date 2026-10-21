@@ -9,7 +9,9 @@
   --color-ink: #192434;
   --color-slate: #5b687b;
   --color-mist: #f1f4f7;
-  --color-waste: #8a8178;
+  --color-waste: #8a8178; /* graphics only: 3.8:1 on white, too low for text */
+  --color-link: #1666a3; /* brand blue darkened to pass AA on mist (5.5:1) */
+  --color-link-dark: #9cc9ee; /* links on navy (7:1) */
 
   --font-sans: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
@@ -27,7 +29,11 @@
   }
 
   a {
-    @apply text-blue underline-offset-2 hover:underline;
+    @apply text-link underline underline-offset-2 hover:decoration-2;
+  }
+
+  .tone-dark a {
+    @apply text-link-dark;
   }
 
   :focus-visible {
@@ -47,5 +53,40 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer components {
+  /* Green CTA: ink text, since white on brand green is only 2.1:1. */
+  .btn-cta {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full bg-green font-bold text-ink no-underline transition-transform hover:-translate-y-0.5 hover:no-underline;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full border-2 border-navy font-bold text-navy no-underline hover:bg-navy hover:text-white hover:no-underline;
+  }
+
+  .skip-link {
+    @apply sr-only z-[60] rounded-md bg-navy px-4 py-2 font-semibold text-white no-underline focus:not-sr-only focus:fixed focus:top-20 focus:left-4;
+  }
+
+  .cite a {
+    @apply text-inherit decoration-1;
+  }
+
+  .tone-dark .cite a {
+    @apply text-inherit;
+  }
+
+  .placeholder {
+    @apply border-current/30 text-slate;
+  }
+
+  .tone-dark .placeholder {
+    @apply text-white/80;
+  }
+
+  .tone-dark .text-slate {
+    @apply text-white/80;
   }
 }
