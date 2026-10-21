@@ -1,9 +1,12 @@
 import { lazy, Suspense } from 'react'
 import { copy } from '../content/copy'
 import { Placeholder } from '../components/Placeholder'
+import { StatGrid } from '../components/charts/StatGrid'
 import { P, Section } from '../components/Section'
 
 const UsProgramMap = lazy(() => import('../components/maps/UsProgramMap'))
+const GrowthLine = lazy(() => import('../components/charts/GrowthLine'))
+const OutcomeRings = lazy(() => import('../components/charts/OutcomeRings'))
 
 const c = copy.meetCompudopt
 
@@ -17,7 +20,7 @@ export function MeetCompudopt() {
       </div>
       <div className="mt-16 space-y-6">
         <h3 className="text-2xl font-bold tracking-tight md:text-3xl">{c.numbers.heading}</h3>
-        <Placeholder name="StatGrid" note="P5: 2025 by the numbers." />
+        <StatGrid />
       </div>
       <div className="mt-16 space-y-6">
         <h3 className="text-2xl font-bold tracking-tight md:text-3xl">{c.map.heading}</h3>
@@ -28,11 +31,15 @@ export function MeetCompudopt() {
       <div className="mt-16 grid gap-10 md:grid-cols-2">
         <div className="space-y-4">
           <h3 className="text-2xl font-bold tracking-tight">{c.growth.heading}</h3>
-          <Placeholder name="GrowthLine" />
+          <Suspense fallback={<div className="min-h-60" />}>
+            <GrowthLine />
+          </Suspense>
         </div>
         <div className="space-y-4">
           <h3 className="text-2xl font-bold tracking-tight">{c.outcomes.heading}</h3>
-          <Placeholder name="OutcomeRings" />
+          <Suspense fallback={<div className="min-h-60" />}>
+            <OutcomeRings />
+          </Suspense>
         </div>
       </div>
     </Section>
