@@ -15,17 +15,23 @@ function readMoreUrl(text: string): string | null {
 
 export function Stories() {
   return (
-    <Section id="stories" headline={c.headline} takeaway={c.takeaway}>
-      <div className="grid gap-10 md:grid-cols-[2fr_3fr] md:items-center">
+    <Section
+      id="stories"
+      tone="navy"
+      headline={c.headline}
+      takeaway={c.takeaway}
+      lead={
         <Block heading={c.video.heading}>
           <P text={c.video.intro} />
         </Block>
-        <YouTube id={carlos.youtubeId!} title={c.video.title} playLabel={c.video.play} />
-      </div>
-
-      <figure className="mt-20 border-l-4 border-green pl-6 md:pl-10">
-        <blockquote className="font-serif text-3xl leading-snug font-bold text-navy md:text-5xl">“{c.quote.text}”</blockquote>
-        <figcaption className="mt-4 max-w-[60ch] text-lg">
+      }
+      aside={<YouTube id={carlos.youtubeId!} title={c.video.title} playLabel={c.video.play} fill />}
+    >
+      <figure className="@container w-full border-l-4 border-green pl-6 md:pl-10">
+        <blockquote className="w-full font-serif text-[clamp(1.5rem,4.5cqi,3rem)] leading-[1.15] font-bold text-white">
+          “{c.quote.text}”
+        </blockquote>
+        <figcaption className="mt-4 w-full text-lg">
           <span className="font-semibold">{c.quote.attribution}.</span> <P text={c.quote.context} className="inline" />
         </figcaption>
       </figure>
@@ -34,14 +40,13 @@ export function Stories() {
       <ul className="mt-8 grid gap-6 md:grid-cols-2">
         {c.cases.map((k) => {
           const url = readMoreUrl(k.body)
-          const bridge = 'kicker' in k
           return (
-            <li key={k.key} className={`flex flex-col rounded-3xl p-6 md:p-8 ${bridge ? 'bg-navy text-white tone-dark' : 'bg-mist'}`}>
-              <p className={`self-start rounded-full px-3 py-1 text-sm font-bold ${bridge ? 'bg-green text-ink' : 'bg-white text-navy'}`}>{k.badge}</p>
+            <li key={k.key} className="surface-light flex flex-col rounded-3xl bg-mist p-6 text-ink md:p-8">
+              <p className="self-start rounded-full bg-white px-3 py-1 text-sm font-bold text-navy">{k.badge}</p>
               <h4 className="mt-4 text-2xl font-extrabold tracking-tight">{k.title}</h4>
               <P text={k.body} className="mt-3 text-lg leading-relaxed" />
-              {bridge && (
-                <p className="mt-4 text-2xl font-extrabold">
+              {'kicker' in k && (
+                <p className="mt-4 text-2xl font-extrabold text-navy">
                   {k.kicker}{' '}
                   <a href="#takeAction" className="text-base font-bold whitespace-nowrap">
                     {c.bridge} →

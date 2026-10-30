@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-import { referencesById } from '../data/types'
-import { compareRefs, parse, referenceText, yearLabels } from '../lib/apa'
+import { citedEntries, referenceText, yearLabels } from '../lib/apa'
 import { useCitedIds } from '../lib/citations'
 
 /** "*Title*" in references.json → <em>Title</em>. */
@@ -18,10 +17,7 @@ function Italics({ text }: { text: string }) {
 export function Sources() {
   const cited = useCitedIds()
   const labels = yearLabels(cited)
-  const entries = [...cited]
-    .filter((id) => referencesById[id])
-    .map((id) => parse(referencesById[id]))
-    .sort(compareRefs)
+  const entries = citedEntries(cited)
 
   return (
     <section id="sources" aria-labelledby="sources-heading" className="tone-dark scroll-mt-16 bg-navy py-16 text-white md:py-20">

@@ -53,6 +53,14 @@ export function yearLabels(citedIds: Iterable<string>): Map<string, string> {
   return labels
 }
 
+/** Cited references in the same order as the Sources list. */
+export function citedEntries(citedIds: Iterable<string>): ParsedRef[] {
+  return [...citedIds]
+    .filter((id) => referencesById[id])
+    .map((id) => parse(referencesById[id]))
+    .sort(compareRefs)
+}
+
 /** APA 7 reference-list order: author, then n.d. before dated works, then year, then title. */
 export function compareRefs(a: ParsedRef, b: ParsedRef): number {
   const byAuthor = strip(a.author).localeCompare(strip(b.author), 'en', { sensitivity: 'base' })

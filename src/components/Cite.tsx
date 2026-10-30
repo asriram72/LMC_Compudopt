@@ -1,9 +1,9 @@
 import { Fragment, useLayoutEffect, useMemo, type ReactNode } from 'react'
 import { referencesById } from '../data/types'
-import { parse, yearLabels } from '../lib/apa'
+import { citedEntries } from '../lib/apa'
 import { registerCitations, useCitedIds } from '../lib/citations'
 
-/** In-text APA citation, e.g. "(Vogels, 2021)", linking to its Sources entry. */
+/** In-text source number, linking to that entry in the Sources list. */
 export function Cite({ ids }: { ids: string | string[] }) {
   const list = useMemo(() => (Array.isArray(ids) ? ids : [ids]), [ids])
   const missing = list.filter((id) => !referencesById[id])
@@ -11,25 +11,23 @@ export function Cite({ ids }: { ids: string | string[] }) {
 
   useLayoutEffect(() => registerCitations(list), [list])
   const cited = useCitedIds()
-  const labels = yearLabels(new Set([...cited, ...list]))
+  const numbers = useMemo(() => {
+    const entries = citedEntries(new Set([...cited, ...list]))
+    return new Map(entries.map((p, i) => [p.ref.id, i + 1]))
+  }, [cited, list])
 
-  // APA orders multiple works in one parenthetical alphabetically by author.
-  const parts = list
-    .map((id) => parse(referencesById[id]))
-    .sort((a, b) => a.inTextAuthor.localeCompare(b.inTextAuthor))
+  const ordered = [...list].sort((a, b) => (numbers.get(a) ?? 0) - (numbers.get(b) ?? 0))
 
   return (
-    <span className="cite text-[0.85em]">
-      (
-      {parts.map((p, i) => (
-        <Fragment key={p.ref.id}>
-          {i > 0 && '; '}
-          <a href={`#ref-${p.ref.id}`}>
-            {p.inTextAuthor}, <span className="whitespace-nowrap">{labels.get(p.ref.id) ?? p.year}</span>
+    <span className="cite">
+      {'['}{ordered.map((id, i) => (
+        <Fragment key={id}>
+          {i > 0 && ', '}
+          <a href={`#ref-${id}`} aria-label={`Source ${numbers.get(id)}`}>
+            {numbers.get(id)}
           </a>
         </Fragment>
-      ))}
-      )
+      ))}{']'}
     </span>
   )
 }
@@ -38,8 +36,8 @@ const TOKEN = /\s*\{\{cite:([^}]+)\}\}/g
 
 /**
  * Renders a copy.ts string, turning {{cite:id}} tokens into <Cite>.
- * APA puts the parenthetical before the sentence's punctuation, so a token written
- * after "." or "," is moved in front of it: "recycling. {{cite:x}}" → "recycling (X, 2024)."
+ * A token written after "." or "," is moved in front of it:
+ * "recycling. {{cite:x}}" → "recycling [1]."
  */
 export function Prose({ text }: { text: string }) {
   const out: ReactNode[] = []

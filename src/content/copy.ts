@@ -1,6 +1,6 @@
 // All site prose lives here, keyed by section, so `npm run wordcount` can total it.
 // Cite facts with tokens like {{cite:itu-2024}} (or {{cite:a,b}} for two sources);
-// <Cite> turns them into "(ITU, 2024)" linking to the Sources section.
+// <Cite> turns them into "[1]" linking to that numbered entry in Sources.
 // Every number here must match src/data/facts.json.
 
 export const copy = {
@@ -144,19 +144,24 @@ export const copy = {
       heading: 'Our own surplus',
       body: "Georgia Tech's surplus operation sent about 69,000 pounds of electronics to recycling in fiscal year 2023. {{cite:gt-surplus-2023}} Recycling beats the landfill, but a working laptop is worth more as a laptop.",
     },
-    sustainabilityNext: {
-      heading: 'It’s already in the plan',
-      body: "Georgia Tech's Sustainability Next plan sets six priorities. {{cite:gt-sustnext-2022}} Device reuse fits two of them directly. Institute Operations is about how campus handles its stuff, and the Living Learning Campus priority turns campus into a place to practice what we study.",
-      zeroWaste:
-        'Georgia Tech’s circular-economy work puts it plainly: “Our goal is to reach zero waste by 2050.” {{cite:gt-circular}} Every laptop that gets a second life is a step toward it.',
-    },
-    sdg: {
-      heading: 'The global goal: SDG 9',
-      intro: 'The UN’s Sustainable Development Goal 9 is about building infrastructure that is resilient, inclusive and sustainable. {{cite:un-sdg9}}',
-      target9c:
-        'Target 9.c: significantly increase access to information and communications technology. Every refurbished laptop we give away is access for someone who didn’t have it.',
-      target94:
-        'Target 9.4: greater resource-use efficiency. Reuse gets more years out of hardware that already exists.',
+    bridge: {
+      heading: 'One laptop, two commitments',
+      intro:
+        'A device you donate answers a UN target and a Georgia Tech priority at the same time. {{cite:un-sdg9,gt-sustnext-2022}}',
+      meet: 'Where they meet',
+      unKicker: 'United Nations',
+      sdgTitle: 'Sustainable Development Goal 9',
+      accessName: 'Access',
+      efficiencyName: 'Resource efficiency',
+      gtKicker: 'Georgia Tech',
+      gtTitle: 'Sustainability Next',
+      gtNote: 'Six priorities. Reuse fits two of them. {{cite:gt-sustnext-2022}}',
+      zeroName: 'Zero waste',
+      zeroQuote: '“Our goal is to reach zero waste by 2050.” {{cite:gt-circular}}',
+      pairAccess:
+        'Giving the laptop away is access to technology. Institute Operations is how campus handles its own devices.',
+      pairReuse:
+        'Keeping it in use is resource efficiency. Living Learning Campus is where students practice that.',
       alsoLabel: 'Also touches',
     },
     atlanta:
@@ -199,8 +204,7 @@ export const copy = {
       heading: 'Where we work',
       caption:
         'States where Compudopt runs programs. Arcs are illustrative, drawn from regional hubs. {{cite:compudopt-locations}}',
-      hint: 'Select Georgia to see what’s happening in Atlanta.',
-      tooltip: 'Compudopt programs here',
+      hint: 'Select Georgia to see what’s happening in Atlanta. Hover another program state to see its locations.',
       alt: 'Map of the United States. States where Compudopt runs programs are green, with arcs from hubs in Atlanta, Houston, Dallas, Chicago and Mesa.',
       legendServed: 'Program states',
       legendOther: 'Other states',

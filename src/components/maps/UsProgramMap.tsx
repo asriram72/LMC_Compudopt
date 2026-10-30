@@ -76,7 +76,11 @@ export default function UsProgramMap() {
                 className={`us-state ${s.served ? 'served' : ''} ${isGA ? 'cursor-pointer' : ''}`}
                 tabIndex={s.served ? (i === focusIdx ? 0 : -1) : undefined}
                 role={s.served ? 'button' : undefined}
-                aria-label={s.served ? `${s.name}: ${c.tooltip}${isGA ? `. Select to ${c.openSpotlight}.` : ''}` : undefined}
+                aria-label={
+                  s.served
+                    ? `${s.name}: ${s.places.join(', ')}${isGA ? `. Select to ${c.openSpotlight}.` : ''}`
+                    : undefined
+                }
                 aria-haspopup={isGA ? 'dialog' : undefined}
                 aria-expanded={isGA ? open : undefined}
                 onPointerMove={(e) => {
@@ -127,11 +131,13 @@ export default function UsProgramMap() {
         {tip && (
           <div
             role="status"
-            className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-[calc(100%+12px)] rounded-lg bg-navy px-3 py-2 text-sm whitespace-nowrap text-white shadow-lg"
-            style={{ left: Math.min(Math.max(tip.x, 80), width - 80), top: tip.y }}
+            className={`pointer-events-none absolute z-10 w-max max-w-56 -translate-x-1/2 rounded-lg bg-navy px-3 py-2 text-sm text-white shadow-lg ${(wrapRef.current?.getBoundingClientRect().top ?? 0) + tip.y < 160 ? 'translate-y-3' : '-translate-y-[calc(100%+12px)]'}`}
+            style={{ left: Math.min(Math.max(tip.x, 112), Math.max(112, width - 112)), top: tip.y }}
           >
             <span className="font-bold">{tip.state.name}</span>
-            {tip.state.served && <span className="block text-white/85">{c.tooltip}</span>}
+            {tip.state.places.length > 0 && (
+              <span className="mt-0.5 block text-white/85">{tip.state.places.join(', ')}</span>
+            )}
           </div>
         )}
       </div>
@@ -157,7 +163,10 @@ export default function UsProgramMap() {
 
       <ul className="sr-only" aria-label={c.listLabel}>
         {SERVED.map((s) => (
-          <li key={s.postal}>{s.name}</li>
+          <li key={s.postal}>
+            {s.name}
+            {s.places.length > 0 ? `: ${s.places.join(', ')}` : ''}
+          </li>
         ))}
       </ul>
 
