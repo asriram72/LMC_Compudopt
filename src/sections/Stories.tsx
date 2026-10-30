@@ -1,5 +1,6 @@
 import { facts, referencesById } from '../data/types'
 import { copy } from '../content/copy'
+import { AccessPhoto } from '../components/AccessPhoto'
 import { ExternalLink } from '../components/ExternalLink'
 import { Block, P, Section } from '../components/Section'
 import { YouTube } from '../components/YouTube'
@@ -35,6 +36,10 @@ export function Stories() {
           <span className="font-semibold">{c.quote.attribution}.</span> <P text={c.quote.context} className="inline" />
         </figcaption>
       </figure>
+
+      <div className="mt-16">
+        <AccessPhoto />
+      </div>
 
       <h3 className="mt-20 text-2xl font-bold tracking-tight md:text-3xl">{c.casesHeading}</h3>
       <ul className="mt-8 grid gap-6 md:grid-cols-2">

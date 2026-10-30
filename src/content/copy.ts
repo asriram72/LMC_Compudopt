@@ -69,6 +69,13 @@ export const copy = {
       ],
       license: 'CC BY-SA 4.0',
     },
+    access: {
+      src: 'images/compudopt-laptop-giveaway.jpg',
+      caption: 'A student with a refurbished laptop at a Compudopt giveaway',
+      alt: 'A child in a winter coat smiles while hugging a laptop, standing beside a table of refurbished laptops and chargers behind a Compudopt-branded tablecloth.',
+      credit: 'Compudopt',
+      source: 'https://www.compudopt.org/wp-content/uploads/2026/06/PressReleasephotoFINAL.png',
+    },
   },
 
   problem: {
