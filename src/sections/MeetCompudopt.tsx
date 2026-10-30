@@ -30,7 +30,7 @@ export function MeetCompudopt() {
       </div>
       <div className="mt-16 grid items-stretch gap-6 lg:grid-cols-2">
         <div className="flex min-w-0 flex-col rounded-3xl bg-white p-6 shadow-sm md:p-8">
-          <h3 className="text-3xl font-extrabold tracking-tight text-navy md:text-4xl">{c.growth.heading}</h3>
+          <h3 className="text-4xl font-extrabold tracking-tight text-navy md:text-5xl">{c.growth.heading}</h3>
           <div className="mt-6 min-w-0 flex-1">
             <Suspense fallback={<div className="min-h-60" />}>
               <GrowthLine />
@@ -38,7 +38,7 @@ export function MeetCompudopt() {
           </div>
         </div>
         <div className="flex min-w-0 flex-col rounded-3xl bg-white p-6 shadow-sm md:p-8">
-          <h3 className="text-3xl font-extrabold tracking-tight text-navy md:text-4xl">{c.outcomes.heading}</h3>
+          <h3 className="text-4xl font-extrabold tracking-tight text-navy md:text-5xl">{c.outcomes.heading}</h3>
           <div className="mt-6 min-w-0 flex-1">
             <Suspense fallback={<div className="min-h-60" />}>
               <OutcomeRings />

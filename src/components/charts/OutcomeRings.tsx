@@ -15,7 +15,7 @@ export default function OutcomeRings() {
       <ul className="grid grid-cols-2 gap-x-4 gap-y-6">
         {facts.compudopt2025.outcomes.map((o, i) => (
           <li key={o.label} className="flex flex-col items-start gap-2">
-            <div className="relative size-24">
+            <div className="relative size-28 sm:size-32">
               <svg viewBox="0 0 100 100" className="size-full -rotate-90" aria-hidden="true">
                 <circle cx={50} cy={50} r={R} fill="none" stroke="#DCE3EA" strokeWidth={9} />
                 <motion.circle
@@ -33,8 +33,14 @@ export default function OutcomeRings() {
                   transition={{ duration: 1, delay: i * 0.12, ease: 'easeOut' }}
                 />
               </svg>
-              <span aria-hidden="true" className="absolute inset-0 grid place-items-center text-xl font-extrabold text-navy tabular-nums">
-                {o.pct}%
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 grid place-items-center text-3xl font-extrabold leading-none text-navy tabular-nums sm:text-4xl"
+              >
+                <span>
+                  {o.pct}
+                  <span className="text-lg sm:text-xl">%</span>
+                </span>
               </span>
             </div>
             <p className="text-sm leading-snug text-ink">
