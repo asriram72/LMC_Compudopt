@@ -38,6 +38,22 @@ export const copy = {
     sceneButton: 'Go to scene',
   },
 
+  transitions: {
+    waste: {
+      caption: 'E-waste at Agbogbloshie, Ghana',
+      alt: 'Broken circuit boards, computer parts and a mouse scattered across the ground at Agbogbloshie, Ghana.',
+      credit: 'Muntaka Chasant via Wikimedia Commons',
+      license: 'CC BY-SA 4.0',
+    },
+    access: {
+      eyebrow: 'What reuse makes possible',
+      headline: 'A device can become a place to learn, create and connect.',
+      alt: 'Four students gathered around a laptop and working together.',
+      credit: 'Bright Kwame Ayisi via Wikimedia Commons',
+      license: 'CC0 1.0',
+    },
+  },
+
   problem: {
     headline: 'Two problems, one fix',
     takeaway:
