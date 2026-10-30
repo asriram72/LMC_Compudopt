@@ -40,29 +40,62 @@ export const copy = {
 
   transitions: {
     waste: {
-      caption: 'E-waste at Agbogbloshie, Ghana',
-      alt: 'Broken circuit boards, computer parts and a mouse scattered across the ground at Agbogbloshie, Ghana.',
-      credit: 'Muntaka Chasant via Wikimedia Commons',
+      label: 'E-waste in Agbogbloshie, Ghana',
+      previous: 'Previous photo',
+      next: 'Next photo',
+      goTo: 'Go to photo',
+      slides: [
+        {
+          src: 'images/ewaste-agbogbloshie.jpg',
+          caption: 'Discarded electronics at Agbogbloshie, Ghana',
+          alt: 'Broken circuit boards, computer parts and a mouse scattered across the ground at Agbogbloshie, Ghana.',
+          credit: 'Muntaka Chasant via Wikimedia Commons',
+          source: 'https://commons.wikimedia.org/wiki/File:Electronic_waste_at_Agbogbloshie,_Ghana.jpg',
+        },
+        {
+          src: 'images/ewaste-workers-ghana.jpg',
+          caption: 'Workers after burning insulation from wires to recover copper',
+          alt: 'E-waste workers standing at a smoky copper-recovery burn site in Agbogbloshie, Ghana.',
+          credit: 'Jcaravanos via Wikimedia Commons',
+          source: 'https://commons.wikimedia.org/wiki/File:E-waste_workers.jpg',
+        },
+        {
+          src: 'images/ewaste-copper-burning-ghana.jpg',
+          caption: 'Burning sheathed cables to recover copper in Accra, Ghana',
+          alt: 'Smoke rising from burning cables at the Agbogbloshie e-waste site in Accra, Ghana.',
+          credit: 'Synth85 via Wikimedia Commons',
+          source: 'https://commons.wikimedia.org/wiki/File:Agbogbloshie,_Ghana.jpg',
+        },
+      ],
       license: 'CC BY-SA 4.0',
-    },
-    access: {
-      eyebrow: 'What reuse makes possible',
-      headline: 'A device can become a place to learn, create and connect.',
-      alt: 'Four students gathered around a laptop and working together.',
-      credit: 'Bright Kwame Ayisi via Wikimedia Commons',
-      license: 'CC0 1.0',
     },
   },
 
   problem: {
     headline: 'Two problems, one fix',
-    takeaway:
-      'The laptops we throw away and the students who go without are the same problem. Reuse solves both.',
     intro:
-      'Think about the last laptop you replaced. Maybe it was slow, maybe the battery gave out, maybe you just wanted something new. Where is it now? For most devices the answer is a drawer, a closet or a trash bin. Here is why that matters.',
+      'Think about the last laptop you replaced. Maybe it was slow, maybe the battery gave out, or maybe you simply wanted something new. Where is it now? For many devices, the answer is a drawer, a closet or a trash bin. That is how useful technology becomes e-waste.',
+    stats: {
+      eyebrow: 'The problem at a glance',
+      heading: 'All the key numbers, in one place',
+      ewaste: {
+        label: 'Global e-waste in 2022',
+        recycled: 'documented as recycled',
+      },
+      access: {
+        label: 'The access gap',
+        computer: 'without a laptop or desktop',
+        broadband: 'without home broadband',
+        note: 'US adults in households earning under $30,000 a year',
+      },
+      reuse: {
+        footprint: 'of a laptop’s lifetime carbon footprint comes from manufacturing it.',
+        lifetime: 'The highlighted share is calculated over a 5-year useful lifetime.',
+      },
+    },
     ewaste: {
       heading: 'The pile keeps growing',
-      body: 'The world generated 62 million tonnes of e-waste in 2022, and only 22.3% of it was documented as collected and recycled. By 2030 the pile is projected to reach 82 million tonnes. E-waste is rising five times faster than documented recycling. {{cite:itu-2024}}',
+      body: 'The world generated 62 million tonnes of e-waste in 2022, and only 22.3% was documented as collected and recycled. By 2030, the pile is projected to reach 82 million tonnes. E-waste is rising five times faster than documented recycling. {{cite:itu-2024}}',
       chart: {
         generated: 'Generated, 2022',
         recycled: 'Documented recycled',
@@ -74,14 +107,13 @@ export const copy = {
     },
     worldMap: {
       heading: 'Where dumped devices go',
-      body: 'Agbogbloshie, in Accra, Ghana, is a major dumping ground for e-waste exported from the US and Europe. Workers there burn cables to get at the metal inside, breathing the fumes. {{cite:shaw-2019}}',
-      contrast: 'That is where dumped devices go. Donated devices stay here, in our community.',
-      alt: 'World map with gray-brown lines running from the United States and western Europe to Accra, Ghana, where Agbogbloshie is.',
-      labels: { us: 'United States', europe: 'Western Europe', accra: 'Agbogbloshie, Accra' },
+      body: 'At Agbogbloshie in Accra, Ghana, workers recover metal from imported e-waste, often by burning cable insulation and breathing the smoke. Much of that trash comes from Europe and North America. {{cite:shaw-2019}}',
+      alt: 'World map with gray-brown lines running from North America and Europe to Accra, Ghana, where Agbogbloshie is.',
+      labels: { us: 'North America', europe: 'Europe', accra: 'Agbogbloshie, Accra' },
     },
     divide: {
       heading: 'Meanwhile, students go without',
-      body: "41% of US adults earning under $30,000 a year don't have a desktop or laptop, and 43% don't have home broadband. {{cite:pew-2021}} Across the country, 18 million households lack a computer or internet at home. {{cite:compudopt-home}} Try writing a lab report or applying for a job on a phone.",
+      body: 'Imagine writing a lab report, coding or applying for a job using only a phone. A donated laptop can turn an unused device into a tool for school and work.',
       waffle: {
         computer: "41 of every 100 lower-income US adults don't have a laptop or desktop",
         broadband: "43 of every 100 don't have home broadband",
@@ -92,13 +124,12 @@ export const copy = {
       },
     },
     reuse: {
-      heading: 'Why reuse beats recycling',
-      body: 'Recycling recovers some of the materials. Reuse keeps the whole machine working. Between 35% and 56% of a laptop’s lifetime carbon footprint comes from manufacturing it, {{cite:prakash-2012}} so keeping a working laptop in use means that cost isn’t paid twice.',
+      heading: 'The greenest laptop is the one that already exists.',
+      body: 'Recycling recovers materials. Reuse preserves the whole machine and puts it into someone else’s hands.',
       chartLabel: "A third to over half of a laptop's footprint happens before you ever open it.",
       making: 'Making it: 35–56%',
       using: 'Using it: the rest',
       caption: 'Share of a laptop’s lifetime carbon footprint. The hatched band shows the range the study reports. {{cite:prakash-2012}}',
-      kicker: 'The greenest laptop is the one that already exists.',
     },
   },
 
