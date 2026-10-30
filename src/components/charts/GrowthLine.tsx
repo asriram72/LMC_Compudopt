@@ -16,6 +16,7 @@ const POINTS = facts.compudoptGrowth.computers.map((p) => ({ ...p, d: new Date(`
 const H = 240
 const M = { top: 34, right: 28, bottom: 30, left: 44 }
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
+const year = new Intl.DateTimeFormat('en-US', { year: 'numeric' })
 const compact = (v: number) => (v === 0 ? '0' : `${v / 1000}K`)
 
 export default function GrowthLine() {
@@ -71,7 +72,7 @@ export default function GrowthLine() {
                     {compact(p.value)}
                   </text>
                   <text x={px} y={H - 8} textAnchor={anchor} className="fill-slate text-xs">
-                    {month.format(p.d)}
+                    {(width < 420 ? year : month).format(p.d)}
                   </text>
                 </g>
               )
