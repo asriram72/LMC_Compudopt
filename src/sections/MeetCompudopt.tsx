@@ -28,18 +28,22 @@ export function MeetCompudopt() {
           <UsProgramMap />
         </Suspense>
       </div>
-      <div className="mt-16 grid gap-10 md:grid-cols-2">
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold tracking-tight">{c.growth.heading}</h3>
-          <Suspense fallback={<div className="min-h-60" />}>
-            <GrowthLine />
-          </Suspense>
+      <div className="mt-16 grid items-stretch gap-6 lg:grid-cols-2">
+        <div className="flex min-w-0 flex-col rounded-3xl bg-white p-6 shadow-sm md:p-8">
+          <h3 className="text-4xl font-extrabold tracking-tight text-navy md:text-5xl">{c.growth.heading}</h3>
+          <div className="mt-6 min-w-0 flex-1">
+            <Suspense fallback={<div className="min-h-60" />}>
+              <GrowthLine />
+            </Suspense>
+          </div>
         </div>
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold tracking-tight">{c.outcomes.heading}</h3>
-          <Suspense fallback={<div className="min-h-60" />}>
-            <OutcomeRings />
-          </Suspense>
+        <div className="flex min-w-0 flex-col rounded-3xl bg-white p-6 shadow-sm md:p-8">
+          <h3 className="text-4xl font-extrabold tracking-tight text-navy md:text-5xl">{c.outcomes.heading}</h3>
+          <div className="mt-6 min-w-0 flex-1">
+            <Suspense fallback={<div className="min-h-60" />}>
+              <OutcomeRings />
+            </Suspense>
+          </div>
         </div>
       </div>
     </Section>

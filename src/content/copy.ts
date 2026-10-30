@@ -1,6 +1,6 @@
 // All site prose lives here, keyed by section, so `npm run wordcount` can total it.
 // Cite facts with tokens like {{cite:itu-2024}} (or {{cite:a,b}} for two sources);
-// <Cite> turns them into "(ITU, 2024)" linking to the Sources section.
+// <Cite> turns them into "[1]" linking to that numbered entry in Sources.
 // Every number here must match src/data/facts.json.
 
 export const copy = {
@@ -38,15 +38,71 @@ export const copy = {
     sceneButton: 'Go to scene',
   },
 
+  transitions: {
+    waste: {
+      label: 'E-waste in Agbogbloshie, Ghana',
+      previous: 'Previous photo',
+      next: 'Next photo',
+      goTo: 'Go to photo',
+      slides: [
+        {
+          src: 'images/ewaste-agbogbloshie.jpg',
+          caption: 'Discarded electronics at Agbogbloshie, Ghana',
+          alt: 'Broken circuit boards, computer parts and a mouse scattered across the ground at Agbogbloshie, Ghana.',
+          credit: 'Muntaka Chasant via Wikimedia Commons',
+          source: 'https://commons.wikimedia.org/wiki/File:Electronic_waste_at_Agbogbloshie,_Ghana.jpg',
+        },
+        {
+          src: 'images/ewaste-workers-ghana.jpg',
+          caption: 'Workers after burning insulation from wires to recover copper',
+          alt: 'E-waste workers standing at a smoky copper-recovery burn site in Agbogbloshie, Ghana.',
+          credit: 'Jcaravanos via Wikimedia Commons',
+          source: 'https://commons.wikimedia.org/wiki/File:E-waste_workers.jpg',
+        },
+        {
+          src: 'images/ewaste-copper-burning-ghana.jpg',
+          caption: 'Burning sheathed cables to recover copper in Accra, Ghana',
+          alt: 'Smoke rising from burning cables at the Agbogbloshie e-waste site in Accra, Ghana.',
+          credit: 'Synth85 via Wikimedia Commons',
+          source: 'https://commons.wikimedia.org/wiki/File:Agbogbloshie,_Ghana.jpg',
+        },
+      ],
+      license: 'CC BY-SA 4.0',
+    },
+    access: {
+      src: 'images/compudopt-laptop-giveaway.jpg',
+      caption: 'A student with a refurbished laptop at a Compudopt giveaway',
+      alt: 'A child in a winter coat smiles while hugging a laptop, standing beside a table of refurbished laptops and chargers behind a Compudopt-branded tablecloth.',
+      credit: 'Compudopt',
+      source: 'https://www.compudopt.org/wp-content/uploads/2026/06/PressReleasephotoFINAL.png',
+    },
+  },
+
   problem: {
     headline: 'Two problems, one fix',
-    takeaway:
-      'The laptops we throw away and the students who go without are the same problem. Reuse solves both.',
     intro:
-      'Think about the last laptop you replaced. Maybe it was slow, maybe the battery gave out, maybe you just wanted something new. Where is it now? For most devices the answer is a drawer, a closet or a trash bin. Here is why that matters.',
+      'Think about the last laptop you replaced. Maybe it was slow, maybe the battery gave out, or maybe you simply wanted something new. Where is it now? For many devices, the answer is a drawer, a closet or a trash bin. That is how useful technology becomes e-waste.',
+    stats: {
+      eyebrow: 'The problem at a glance',
+      heading: 'All the key numbers, in one place',
+      ewaste: {
+        label: 'Global e-waste in 2022',
+        recycled: 'documented as recycled',
+      },
+      access: {
+        label: 'The access gap',
+        computer: 'without a laptop or desktop',
+        broadband: 'without home broadband',
+        note: 'US adults in households earning under $30,000 a year',
+      },
+      reuse: {
+        footprint: 'of a laptop’s lifetime carbon footprint comes from manufacturing it.',
+        lifetime: 'The highlighted share is calculated over a 5-year useful lifetime.',
+      },
+    },
     ewaste: {
       heading: 'The pile keeps growing',
-      body: 'The world generated 62 million tonnes of e-waste in 2022, and only 22.3% of it was documented as collected and recycled. By 2030 the pile is projected to reach 82 million tonnes. E-waste is rising five times faster than documented recycling. {{cite:itu-2024}}',
+      body: 'The world generated 62 million tonnes of e-waste in 2022, and only 22.3% was documented as collected and recycled. By 2030, the pile is projected to reach 82 million tonnes. E-waste is rising five times faster than documented recycling. {{cite:itu-2024}}',
       chart: {
         generated: 'Generated, 2022',
         recycled: 'Documented recycled',
@@ -58,14 +114,13 @@ export const copy = {
     },
     worldMap: {
       heading: 'Where dumped devices go',
-      body: 'Agbogbloshie, in Accra, Ghana, is a major dumping ground for e-waste exported from the US and Europe. Workers there burn cables to get at the metal inside, breathing the fumes. {{cite:shaw-2019}}',
-      contrast: 'That is where dumped devices go. Donated devices stay here, in our community.',
-      alt: 'World map with gray-brown lines running from the United States and western Europe to Accra, Ghana, where Agbogbloshie is.',
-      labels: { us: 'United States', europe: 'Western Europe', accra: 'Agbogbloshie, Accra' },
+      body: 'At Agbogbloshie in Accra, Ghana, workers recover metal from imported e-waste, often by burning cable insulation and breathing the smoke. Much of that trash comes from Europe and North America. {{cite:shaw-2019}}',
+      alt: 'World map with gray-brown lines running from North America and Europe to Accra, Ghana, where Agbogbloshie is.',
+      labels: { us: 'North America', europe: 'Europe', accra: 'Agbogbloshie, Accra' },
     },
     divide: {
       heading: 'Meanwhile, students go without',
-      body: "41% of US adults earning under $30,000 a year don't have a desktop or laptop, and 43% don't have home broadband. {{cite:pew-2021}} Across the country, 18 million households lack a computer or internet at home. {{cite:compudopt-home}} Try writing a lab report or applying for a job on a phone.",
+      body: 'Imagine writing a lab report, coding or applying for a job using only a phone. A donated laptop can turn an unused device into a tool for school and work.',
       waffle: {
         computer: "41 of every 100 lower-income US adults don't have a laptop or desktop",
         broadband: "43 of every 100 don't have home broadband",
@@ -76,13 +131,12 @@ export const copy = {
       },
     },
     reuse: {
-      heading: 'Why reuse beats recycling',
-      body: 'Recycling recovers some of the materials. Reuse keeps the whole machine working. Between 35% and 56% of a laptop’s lifetime carbon footprint comes from manufacturing it, {{cite:prakash-2012}} so keeping a working laptop in use means that cost isn’t paid twice.',
+      heading: 'The greenest laptop is the one that already exists.',
+      body: 'Recycling recovers materials. Reuse preserves the whole machine and puts it into someone else’s hands.',
       chartLabel: "A third to over half of a laptop's footprint happens before you ever open it.",
       making: 'Making it: 35–56%',
       using: 'Using it: the rest',
       caption: 'Share of a laptop’s lifetime carbon footprint. The hatched band shows the range the study reports. {{cite:prakash-2012}}',
-      kicker: 'The greenest laptop is the one that already exists.',
     },
   },
 
@@ -97,19 +151,24 @@ export const copy = {
       heading: 'Our own surplus',
       body: "Georgia Tech's surplus operation sent about 69,000 pounds of electronics to recycling in fiscal year 2023. {{cite:gt-surplus-2023}} Recycling beats the landfill, but a working laptop is worth more as a laptop.",
     },
-    sustainabilityNext: {
-      heading: 'It’s already in the plan',
-      body: "Georgia Tech's Sustainability Next plan sets six priorities. {{cite:gt-sustnext-2022}} Device reuse fits two of them directly. Institute Operations is about how campus handles its stuff, and the Living Learning Campus priority turns campus into a place to practice what we study.",
-      zeroWaste:
-        'Georgia Tech’s circular-economy work puts it plainly: “Our goal is to reach zero waste by 2050.” {{cite:gt-circular}} Every laptop that gets a second life is a step toward it.',
-    },
-    sdg: {
-      heading: 'The global goal: SDG 9',
-      intro: 'The UN’s Sustainable Development Goal 9 is about building infrastructure that is resilient, inclusive and sustainable. {{cite:un-sdg9}}',
-      target9c:
-        'Target 9.c: significantly increase access to information and communications technology. Every refurbished laptop we give away is access for someone who didn’t have it.',
-      target94:
-        'Target 9.4: greater resource-use efficiency. Reuse gets more years out of hardware that already exists.',
+    bridge: {
+      heading: 'One laptop, two commitments',
+      intro:
+        'A device you donate answers a UN target and a Georgia Tech priority at the same time. {{cite:un-sdg9,gt-sustnext-2022}}',
+      meet: 'Where they meet',
+      unKicker: 'United Nations',
+      sdgTitle: 'Sustainable Development Goal 9',
+      accessName: 'Access',
+      efficiencyName: 'Resource efficiency',
+      gtKicker: 'Georgia Tech',
+      gtTitle: 'Sustainability Next',
+      gtNote: 'Six priorities. Reuse fits two of them. {{cite:gt-sustnext-2022}}',
+      zeroName: 'Zero waste',
+      zeroQuote: '“Our goal is to reach zero waste by 2050.” {{cite:gt-circular}}',
+      pairAccess:
+        'Giving the laptop away is access to technology. Institute Operations is how campus handles its own devices.',
+      pairReuse:
+        'Keeping it in use is resource efficiency. Living Learning Campus is where students practice that.',
       alsoLabel: 'Also touches',
     },
     atlanta:
@@ -152,8 +211,7 @@ export const copy = {
       heading: 'Where we work',
       caption:
         'States where Compudopt runs programs. Arcs are illustrative, drawn from regional hubs. {{cite:compudopt-locations}}',
-      hint: 'Select Georgia to see what’s happening in Atlanta.',
-      tooltip: 'Compudopt programs here',
+      hint: 'Select Georgia to see what’s happening in Atlanta. Hover another program state to see its locations.',
       alt: 'Map of the United States. States where Compudopt runs programs are green, with arcs from hubs in Atlanta, Houston, Dallas, Chicago and Mesa.',
       legendServed: 'Program states',
       legendOther: 'Other states',

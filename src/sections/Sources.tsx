@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-import { referencesById } from '../data/types'
-import { compareRefs, parse, referenceText, yearLabels } from '../lib/apa'
+import { citedEntries, referenceText, yearLabels } from '../lib/apa'
 import { useCitedIds } from '../lib/citations'
 
 /** "*Title*" in references.json → <em>Title</em>. */
@@ -18,31 +17,35 @@ function Italics({ text }: { text: string }) {
 export function Sources() {
   const cited = useCitedIds()
   const labels = yearLabels(cited)
-  const entries = [...cited]
-    .filter((id) => referencesById[id])
-    .map((id) => parse(referencesById[id]))
-    .sort(compareRefs)
+  const entries = citedEntries(cited)
 
   return (
-    <section id="sources" aria-labelledby="sources-heading" className="scroll-mt-16 bg-white py-20">
+    <section id="sources" aria-labelledby="sources-heading" className="tone-dark scroll-mt-16 bg-navy py-16 text-white md:py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <h2 id="sources-heading" className="text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+        <h2 id="sources-heading" className="text-3xl font-extrabold tracking-tight md:text-4xl">
           Sources
         </h2>
-        <ol className="mt-8 max-w-[80ch] space-y-3 text-base leading-relaxed">
-          {entries.map((p) => {
+        <ol className="mt-8 w-full space-y-4 text-sm leading-6 md:text-base">
+          {entries.map((p, index) => {
             const { text, url } = referenceText(p, labels.get(p.ref.id) ?? p.year)
             return (
-              <li key={p.ref.id} id={`ref-${p.ref.id}`} className="scroll-mt-20 pl-8 -indent-8 break-words target:bg-green/20">
-                <Italics text={text} />
-                {url && (
-                  <>
-                    {' '}
-                    <a href={url} target="_blank" rel="noopener">
-                      {url}
-                    </a>
-                  </>
-                )}
+              <li
+                key={p.ref.id}
+                id={`ref-${p.ref.id}`}
+                className="grid scroll-mt-20 grid-cols-[2.25rem_minmax(0,1fr)] gap-x-3 target:bg-white/10"
+              >
+                <span className="font-semibold tabular-nums">{index + 1}.</span>
+                <p className="break-words">
+                  <Italics text={text} />
+                  {url && (
+                    <>
+                      {' '}
+                      <a href={url} target="_blank" rel="noopener">
+                        {url.replace(/\//g, '/\u200b')}
+                      </a>
+                    </>
+                  )}
+                </p>
               </li>
             )
           })}

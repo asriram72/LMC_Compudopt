@@ -30,6 +30,8 @@ export interface UsState {
   d: string
   centroid: [number, number]
   served: boolean
+  /** Published program-location names. Empty when the state is not served. */
+  places: string[]
 }
 
 export interface Hub {
@@ -47,6 +49,12 @@ export interface Arc {
 
 const topo = statesTopo as unknown as Topology<{ states: GeometryCollection<{ name: string }> }>
 const served = new Set(facts.programStates.states)
+const placeLists = facts.programStates.places
+
+function placesFor(postal: string): string[] {
+  if (postal in placeLists) return placeLists[postal as keyof typeof placeLists]
+  return []
+}
 
 export const US_STATES: UsState[] = feature(topo, topo.objects.states).features.map((f) => {
   const fips = String(f.id)
@@ -58,6 +66,7 @@ export const US_STATES: UsState[] = feature(topo, topo.objects.states).features.
     d: path(f) ?? '',
     centroid: path.centroid(f) as [number, number],
     served: served.has(postal),
+    places: placesFor(postal),
   }
 })
 

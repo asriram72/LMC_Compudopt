@@ -1,6 +1,7 @@
-// Where dumped e-waste goes: flow lines from the US and western Europe to
-// Agbogbloshie in Accra, Ghana (Shaw, 2019). This map is only about dumped
-// devices; Compudopt's own work is US-only (see UsProgramMap).
+// Where dumped e-waste goes: flow lines from North America and Europe to
+// Agbogbloshie in Accra, Ghana. Shaw (2019) says the trash comes largely from
+// those regions. This map is only about dumped devices; Compudopt's own work
+// is US-only (see UsProgramMap).
 import { geoEqualEarth, geoPath } from 'd3-geo'
 import type { Feature, FeatureCollection, Geometry, LineString } from 'geojson'
 import { motion } from 'motion/react'
@@ -38,7 +39,31 @@ const line = (from: [number, number]): Feature<LineString> => ({
 
 const FLOWS = ORIGINS.map((o) => ({ ...o, d: path(line(o.at)) ?? '', xy: projection(o.at)! }))
 const [AX, AY] = projection(ACCRA)!
-const HIGHLIGHT = new Set(['United States of America', 'France', 'Germany', 'United Kingdom', 'Belgium', 'Netherlands', 'Spain', 'Italy'])
+const HIGHLIGHT = new Set([
+  'United States of America',
+  'Canada',
+  'Mexico',
+  'France',
+  'Germany',
+  'United Kingdom',
+  'Belgium',
+  'Netherlands',
+  'Spain',
+  'Italy',
+  'Portugal',
+  'Ireland',
+  'Switzerland',
+  'Austria',
+  'Poland',
+  'Sweden',
+  'Norway',
+  'Denmark',
+  'Finland',
+  'Greece',
+  'Czechia',
+  'Romania',
+  'Hungary',
+])
 
 export default function EwasteWorldMap() {
   const [ref, width] = useWidth<HTMLDivElement>()
@@ -53,7 +78,7 @@ export default function EwasteWorldMap() {
             <path
               key={i}
               d={path(f) ?? ''}
-              fill={f.properties.name === 'Ghana' ? 'var(--color-waste)' : HIGHLIGHT.has(f.properties.name) ? '#3A5482' : '#2A4573'}
+              fill={HIGHLIGHT.has(f.properties.name) ? '#3A5482' : '#2A4573'}
               stroke="var(--color-navy)"
               strokeWidth={0.5}
             />

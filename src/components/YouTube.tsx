@@ -4,10 +4,23 @@ import { useState } from 'react'
  * Click-to-load YouTube facade: shows the thumbnail and a play button, and only
  * loads the (privacy-enhanced) youtube-nocookie player when clicked.
  */
-export function YouTube({ id, title, playLabel = 'Play video' }: { id: string; title: string; playLabel?: string }) {
+export function YouTube({
+  id,
+  title,
+  playLabel = 'Play video',
+  fill = false,
+}: {
+  id: string
+  title: string
+  playLabel?: string
+  /** On large screens, stretch to the height of the neighboring text. */
+  fill?: boolean
+}) {
   const [playing, setPlaying] = useState(false)
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-ink shadow-lg">
+    <div
+      className={`relative w-full overflow-hidden rounded-2xl bg-ink shadow-lg ${fill ? 'aspect-video lg:absolute lg:inset-0 lg:aspect-auto' : 'aspect-video'}`}
+    >
       {playing ? (
         <iframe
           className="absolute inset-0 size-full"

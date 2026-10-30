@@ -14,24 +14,41 @@ interface SectionProps {
   tone?: Tone
   headline: string
   takeaway?: string
+  /** Extra copy under the takeaway, kept in the headline column when `aside` is set. */
+  lead?: ReactNode
+  /** On large screens, sits beside the headline. Stacks under it on smaller screens. */
+  aside?: ReactNode
   children?: ReactNode
 }
 
 /** A full-width page section with a headline and one-line takeaway. */
-export function Section({ id, tone = 'white', headline, takeaway, children }: SectionProps) {
+export function Section({ id, tone = 'white', headline, takeaway, lead, aside, children }: SectionProps) {
   const headingId = `${id}-heading`
+  const header = (
+    <>
+      <h2 id={headingId} className="max-w-[20ch] text-4xl leading-[1.05] font-extrabold tracking-tight md:text-6xl">
+        {headline}
+      </h2>
+      {takeaway && (
+        <p className="lede mt-5 max-w-[48ch] text-xl leading-snug md:text-2xl">
+          <Prose text={takeaway} />
+        </p>
+      )}
+      {lead && <div className="mt-8 lg:mt-10">{lead}</div>}
+    </>
+  )
   return (
     <section id={id} aria-labelledby={headingId} className={`scroll-mt-16 py-20 md:py-28 ${tones[tone]}`}>
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        <h2 id={headingId} className="max-w-[20ch] text-4xl leading-[1.05] font-extrabold tracking-tight md:text-6xl">
-          {headline}
-        </h2>
-        {takeaway && (
-          <p className="lede mt-5 max-w-[48ch] text-xl leading-snug md:text-2xl">
-            <Prose text={takeaway} />
-          </p>
+        {aside ? (
+          <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-x-16">
+            <div className="min-w-0">{header}</div>
+            <div className="relative min-h-56 min-w-0 lg:min-h-0">{aside}</div>
+          </div>
+        ) : (
+          header
         )}
-        <div className="mt-12 md:mt-16">{children}</div>
+        {children && <div className={aside ? 'mt-16 lg:mt-24' : 'mt-12 md:mt-16'}>{children}</div>}
       </div>
     </section>
   )
