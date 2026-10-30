@@ -12,7 +12,9 @@ export function AccessPhoto() {
           alt={photo.alt}
           loading="lazy"
           decoding="async"
-          className="aspect-[16/7] w-full object-cover"
+          width={1280}
+          height={670}
+          className="h-auto w-full"
         />
       </div>
       <figcaption className="px-4 pt-3 text-center md:px-5">
